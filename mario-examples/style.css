@@ -1,0 +1,109 @@
+/*// BASE STYLES //*/
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+
+.grass, .sky, .road{
+  position: relative;
+}
+
+.sky{
+  height: 40%;
+  background: skyblue;
+}
+
+.grass{
+  height: 30%;
+  background: seagreen;
+}
+
+.road{
+  height: 30%;
+  background: dimgrey;
+  box-sizing: border-box;
+  border-top: 10px solid grey;
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+.mario{
+  position: absolute;
+  top: -60px;
+  left: 0;
+  /* connecting the element to the animation (keyframe)
+  animation-name: drive;
+  // duration of that animation //
+  animation-duration: 3s;
+  // stopping mario at the end(forwards) //
+  animation-fill-mode: both;
+  // 2s delay before the animation kicks in //
+  / animation-delay: 2s; /
+  animation-iteration-count: infinite;
+  // fn which controls the speed of mario //
+  animation-timing-function:linear; */
+  /* chaining two animations together */
+  animation: drive 3s both infinite linear, 
+    jump 0.3s 1.2s ease;
+}
+.luigi{
+  position: absolute;
+  top: 65px;
+  left: 0;
+  /* using the same keyframe for reverse movement */
+  animation-name: drive;
+  animation-duration: 5s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-direction: normal;
+  animation-timing-function:linear;
+}
+
+/* implementing animation shorthanded */
+.cloud{
+  position: absolute;
+}
+/* accessing the second cloud */
+.cloud:nth-child(1){
+  width: 200px;
+  top: 120px;
+  opacity: 0.5;
+  animation: wind 80s linear infinite reverse;
+}
+.cloud:nth-child(2){
+  width:300px;
+  top:0;
+  animation: wind 50s linear infinite reverse;
+}
+
+/*// KEYFRAMES //*/
+
+/* animations to make mario drive from left to right */
+
+@keyframes drive{
+  from{transform: translateX(-200px)}
+  to{transform: translateX(1500px)}
+}
+@keyframes wind{
+  from{left:-300px}
+  to{left: 100%}
+}
+@keyframes jump{
+  /* for jump we're going to need 3 states */
+  0%{top: -60px }
+  50%{top:-100px}
+  100%{top: -60px}
+}

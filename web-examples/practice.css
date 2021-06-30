@@ -1,0 +1,65 @@
+/* basket styles */
+
+body{margin: 0; position: relative;}
+*{
+  font-family: Calibri, sans-serif; 
+  font-weight: normal;
+  color: #333;
+}
+header h1{
+    font-size: 45px;
+    margin: 10px 0;
+    float: left;
+}
+header{
+    padding: 10px 20px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+}
+header:after{
+    display: block;
+    content: "";
+    clear: both;
+}
+
+.basket-icon{
+    float: right;
+    position: relative;
+    z-index:1;
+}
+ul{
+    margin: 40px 0;
+    padding: 0;
+}
+li{
+    display: inline-block;
+    margin: 30px 15px;
+    width: 30%;
+    text-align: center;
+}
+button{
+    background: #333;
+    color: white;
+    font-size: 18px;
+    border-radius: 10px;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* BASKET ANIMATION STYLES */
+
+.zoom{
+    position: absolute;
+    top: 40px;
+    right: 50%;
+    width: 40px;
+    opacity:0;
+    animation: zoom 1s ease forwards;
+}
+
+@keyframes zoom{
+    0%{opacity:0}
+    50%{opacity: 1}
+    100%{opacity:0; right: 40px;}
+}
